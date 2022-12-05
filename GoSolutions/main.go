@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello from all days")
+	fmt.Println("Running through all days")
 	fmt.Println(Day1.Part1())
+	fmt.Println(Day1.Part2())
 }

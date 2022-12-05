@@ -3,18 +3,19 @@ package InputFileParser
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
-func makeSliceOfLinesFromFile(filename string) []string {
+func MakeSliceOfLinesFromFile(filename string) []string {
 	fileContents, readInError := os.ReadFile(filename)
-	if (readInError != nil) {
-		fmt.Println("CRITICAL:"+readInError.Error())
+	if readInError != nil {
+		fmt.Println("CRITICAL:" + readInError.Error())
 		return []string{}
-		} else {
-			lines := []string{}
-			for _, line := range fileContents {
-				lines = append(lines, string(line))
-			}
-			return lines
+	} else {
+		lines := strings.Split(string(fileContents), "\n")
+		for _, line := range fileContents {
+			lines = append(lines, string(line))
 		}
+		return lines
 	}
+}
